@@ -1,0 +1,23 @@
+enableComponent: true
+keda:
+  enabled: true
+  fallback:
+    failureThreshold: 5
+    replicas: 3
+  advanced:
+    enabled: false
+    stabilizationWindowSeconds: 300
+    periodSeconds: 60  
+  minReplicaCount: 1 # 0 not allowed. We aren't ready for folks to scale to 0
+  maxReplicaCount: 100 # This is the default set by KEDA
+  pollingInterval: 60 # This is what we're defaulting to, but can be overriden
+  triggers:
+  - type: kafka
+    bootstrapServers: http
+    # Make sure that this consumer group name is the same one as the one that is consuming topics
+    consumerGroup: consumerGroupd
+    topic: myTopic
+    lagThreshold: 34
+    offsetResetPolicy: latest # defaults to latest
+    authenticationRef: kafka-cred-<component name> # from kedaTriggerAuthentications above
+
