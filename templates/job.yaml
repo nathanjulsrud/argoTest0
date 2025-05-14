@@ -6,7 +6,7 @@ metadata:
   labels:
     app: nginx
   annotations:
-    "helm.sh/hook": post-install,post-upgrade
+#    "helm.sh/hook": post-install,post-upgrade
 #    "helm.sh/hook-delete-policy": before-hook-creation
 spec:
   selector:
