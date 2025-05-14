@@ -1,18 +1,22 @@
-# # deployment.yaml for nginx1
-# apiVersion: apps/v1
-# kind: Job
-# metadata:
-#   name: nginx-job
-#   labels:
-#   annotations:
-#     "helm.sh/hook": post-install,post-upgrade
-#     "helm.sh/hook-delete-policy": before-hook-creation
-# spec:
-#   template:
-#     spec:
-#       containers:
-#       - name: ubuntu
-#         image: ubuntu:latest
-#         command: ["echo", "$(date)"]
-#       restartPolicy: Never
-#   backoffLimit: 4
+# job.yaml for nginx1
+apiVersion: apps/v1
+kind: Job
+metadata:
+  name: nginx-job
+  labels:
+    app: nginx
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu:latest
+        command: ["echo", "$(date)"]
+      restartPolicy: Never
+  backoffLimit: 4
