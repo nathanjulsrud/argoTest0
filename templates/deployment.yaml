@@ -18,6 +18,7 @@ spec:
       containers:
         - name: nginx
           image: "nginx:latest"
-          command: ["/usr/bin/sleep 30","/usr/sbin/nginx"]
+          command: ["/bin/sh"]
+          args: ["-c","sleep 30","nginx"]
           ports:
             - containerPort: 80
