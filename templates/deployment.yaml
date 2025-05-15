@@ -19,7 +19,7 @@ spec:
         - name: nginx
           image: "nginx:latest"
           command: ["/bin/sh"]
-          args: ["-c","sleep 30","nginx"]
+          args: ["-c","sleep 30","/etc/init.d/nginx start"]
           ports:
             - containerPort: 80
               readinessProbe:
