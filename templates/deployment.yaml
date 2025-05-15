@@ -18,8 +18,6 @@ spec:
       containers:
         - name: nginx
           image: "nginx:latest"
-          command: ["/bin/sh"]
-          args: ["-c","sleep 30","/etc/init.d/nginx start"]
           ports:
             - containerPort: 80
               readinessProbe:
@@ -28,4 +26,4 @@ spec:
               path: /
               port: 80
             failureThreshold: 60
-            periodSeconds: 10
+            periodSeconds: 20
