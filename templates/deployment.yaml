@@ -22,3 +22,10 @@ spec:
           args: ["-c","sleep 30","nginx"]
           ports:
             - containerPort: 80
+              readinessProbe:
+          startupProbe:
+            httpGet:
+              path: /
+              port: 80
+            failureThreshold: 60
+            periodSeconds: 10
