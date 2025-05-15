@@ -18,5 +18,6 @@ spec:
       containers:
         - name: nginx
           image: "nginx:latest"
+          command: ["sleep 30","nginx"]
           ports:
             - containerPort: 80
