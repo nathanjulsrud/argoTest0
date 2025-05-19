@@ -26,7 +26,7 @@ spec:
               path: /
               port: 80
             failureThreshold: 60
-            periodSeconds: 21
+            periodSeconds: 23
           readinessProbe:
             httpGet:
                 path: /
