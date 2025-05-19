@@ -27,3 +27,19 @@ spec:
               port: 80
             failureThreshold: 60
             periodSeconds: 20
+          readinessProbe:
+            httpGet:
+                path: /
+                port: 80
+            failureThreshold: 2
+            initialDelaySeconds: 23
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+                path: /
+                port: 80
+            failureThreshold: 2
+            initialDelaySeconds: 24
+            periodSeconds: 10
+            timeoutSeconds: 5
