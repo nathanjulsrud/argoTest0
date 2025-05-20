@@ -28,13 +28,13 @@ spec:
               path: /
               port: 80
             failureThreshold: 60
-            periodSeconds: 20
+            periodSeconds: 10
           readinessProbe:
             httpGet:
                 path: /
                 port: 80
             failureThreshold: 2
-            initialDelaySeconds: 23
+            initialDelaySeconds: 13
             periodSeconds: 10
             timeoutSeconds: 5
           livenessProbe:
@@ -42,6 +42,6 @@ spec:
                 path: /
                 port: 80
             failureThreshold: 2
-            initialDelaySeconds: 24
+            initialDelaySeconds: 14
             periodSeconds: 10
             timeoutSeconds: 5
